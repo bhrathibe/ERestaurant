@@ -1,0 +1,46 @@
+﻿@model List<ERestaurant.Models.FoodItem>
+
+<h2>Food Items List</h2>
+
+<table id="foodTable" class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var foodItem in Model)
+        {
+            <tr>
+                <td>@foodItem.Food_Name</td>
+                <td>@foodItem.Food_Description</td>
+                <td>@foodItem.Food_Price</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@foodItem.Food_Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@foodItem.Food_Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Add New Item</a>
+
+@section Scripts
+    {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js" defer></script>
+    <script>
+        $(document).ready(function () {
+            $('#foodTable').DataTable({
+                "lengthMenu": [[5,10, 25, 50, -1], [5,10, 25, 50, "All"]]
+            });
+        });
+    </script>
+
+}
+
+
