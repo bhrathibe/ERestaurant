@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "RazorControlStructure";
+    var value = 25;
+}
+<hr />
+@switch (value)
+{
+    case 1:
+        <p>You Entered 1</p>
+        break;
+    case 25:
+        <p>You Entered 25</p>
+        break;
+    default:
+        <p>You entered something than 1 and 25.</p>
+        break;
+}  
